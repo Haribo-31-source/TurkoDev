@@ -1,0 +1,52 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  header {
+    opacity: 0;
+    position: absolute;
+  }
+
+  input, textarea {
+    min-width: 200px;
+    max-width: 500px;
+    width: 70vw;
+    padding: 10px;
+    margin: 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  input {
+    height: 2vh;
+  }
+
+  textarea {
+    height: 5vh;
+    resize: none;
+  }
+
+  textarea {
+    height: 200px;
+    resize: none;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #error1, #error2 {
+    color: red;
+    height: 10px;
+    font-size: clamp(12px, 1.5vw, 19px);
+  }
+

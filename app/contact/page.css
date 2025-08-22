@@ -1,0 +1,53 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  width:20%;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgba(128, 255, 0, 0.418);
+}
+
+textarea {
+  height: 200px;
+}
+
+button {
+  padding: 10px;
+  width:19%;
+  background-color: black;
+  color: rgb(76, 76, 76);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(76, 76, 76);
+  color: rgb(196, 196, 196);
+  transform: scale(1.01);
+}
+
+#error1 {
+  color: red;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 22%;
+}
+
+#error2 {
+  color: red;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 31%;
+}
