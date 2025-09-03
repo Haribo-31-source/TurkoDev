@@ -1,8 +1,13 @@
+export const runtime = 'nodejs';
+
 import { NextResponse } from "next/server";
 import crypto from "crypto";
+import prisma from "@/lib/prisma";
 
 export async function POST(request: Request) {
   const { username, password } = await request.json();
+
+  try{
 
   if (username === process.env.ADMIN_USERNAME! && password === process.env.ADMIN_PASSWORD!) {
     const token = crypto.randomBytes(32).toString("hex");
@@ -14,6 +19,11 @@ export async function POST(request: Request) {
       httpOnly: true,   // client JS erişemez
       sameSite: "strict"
     });
+    prisma.tokens.create({
+      data: {
+        token: token,
+      },
+    })
     return res;
   } else {
     const token = crypto.randomBytes(32).toString("hex");
@@ -26,5 +36,9 @@ export async function POST(request: Request) {
       sameSite: "strict"
     });
     return res;
+  }
+  } catch (error) {
+    console.log(error + "Hata Oluştu");
+    return NextResponse.json({ message: "Hata oluştu." }, { status: 500 });
   }
 }

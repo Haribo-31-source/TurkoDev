@@ -27,7 +27,7 @@ export default function RootLayout({
           <nav>
             <ul>
               <h2 className="font-geist-sans font-bold text-2xl ">Baldi&apos;s Leader</h2>
-              <li><Link href={"/"}>Home</Link>Home</li>
+              <li><Link href={"/"}>Home</Link></li>
               <li><Link href={"/blogs"}>Blogs</Link></li>
               <li><Link href={"/contact"}>Contact</Link></li>
               <li><Link href={"/links"}>My Links</Link></li>

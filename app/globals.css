@@ -49,12 +49,23 @@ header > nav > ul > li
   padding: 10px;
   text-align: center;
   color: black;
+  transition: 1s ease;
 }
 
 header > nav > ul > li > a
 {
   text-decoration: none;
   color: rgb(0, 0, 0);
-  font-size: clamp(13px, 2vw, 1.5rem);
+  font-size: clamp(7px, 1.5vw, 2rem);
+}
+
+header > nav > ul > h2{
+  font-size: clamp(15px, 2vw, 2rem);
+}
+
+header > nav > ul > li:hover
+{
+  color:rgb(68, 68, 68);
+  transform: scale(1.1);
 }
 
