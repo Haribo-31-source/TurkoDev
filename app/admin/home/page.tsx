@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import "../layout.css";
 
 export default function Home() {
   const router = useRouter();
@@ -13,14 +14,15 @@ export default function Home() {
     withCredentials: true,
     });
     if (res.data.ok) {
-      setMessage(res.data.messsage);
+      setMessage(res.data.message);
     }else {
       setMessage(res.data.messsage);
       router.push("/admin/login");
     }
 }
 
-  admin();
+admin()
+
   return (
     <>
     <h1>Admin Home</h1>

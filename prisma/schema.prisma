@@ -18,3 +18,15 @@ model Tokens {
   id        String   @id @default(uuid())
   token     String   @unique
 }
+
+model Chat {
+  id        String   @id @default(uuid())
+  message   String
+}
+
+model Blogs {
+  id        String   @id @default(uuid())
+  title     String
+  author    String
+  content   String
+}

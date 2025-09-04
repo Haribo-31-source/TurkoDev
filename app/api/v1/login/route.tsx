@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
   if (username === process.env.ADMIN_USERNAME! && password === process.env.ADMIN_PASSWORD!) {
     const token = crypto.randomBytes(32).toString("hex");
-    const res = NextResponse.json({ message: "Admin giriş yapıldı."}, { status: 200 });
+    const res = NextResponse.redirect(new URL("/admin/home", request.url));
     res.cookies.set("token", token, {
       maxAge: 10 * 60,  // 10 dakika
       path: "/",        // tüm siteye geçerli
@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       httpOnly: true,   // client JS erişemez
       sameSite: "strict"
     });
-    prisma.tokens.create({
+    await prisma.tokens.create({
       data: {
         token: token,
       },

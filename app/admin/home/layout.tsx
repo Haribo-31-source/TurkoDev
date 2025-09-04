@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../layout.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -22,15 +22,14 @@ export default function RootLayout({
 
       </head>
       <body>
-        <header>
+        <header className="admin-header">
           
           <nav>
             <ul>
-              <h2 className="font-geist-sans font-bold text-2xl ">Baldi&apos;s Leader</h2>
-              <li><Link href={"/"}>Home</Link></li>
-              <li><Link href={"/blogs"}>Blogs</Link></li>
-              <li><Link href={"/chat"}>Chat</Link></li>
-              <li><Link href={"/links"}>My Links</Link></li>
+              <h2 className="font-geist-sans font-bold text-2xl ">Admin&apos;s Panel</h2>
+              <li><Link href={"/admin/home"}>Home</Link></li>
+              <li><Link href={"/admin/home/addBlog"}>Blogs</Link></li>
+              <li><Link href={"/admin/home/latest"}>Chat</Link></li>
             </ul>
           </nav>
         </header>

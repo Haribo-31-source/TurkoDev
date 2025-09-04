@@ -4,12 +4,15 @@ import prisma from "@/lib/prisma";
 export async function GET(body: NextRequest) {
     try{
     const token  = await body.cookies.get("token")?.value;
+    if(!token) {
+        return NextResponse.redirect(new URL("/admin/login", body.url));
+        }
     const result = await prisma.tokens.findUnique({
         where: {
             token: token
         }
     });
-    if(token === "" || result === undefined){
+    if(!result || !token){
         return NextResponse.json({ message: "Giriş yapınız." , ok: false }, { status: 401 });
     }
     if (result) {
