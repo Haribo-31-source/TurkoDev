@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
   if (username === process.env.ADMIN_USERNAME! && password === process.env.ADMIN_PASSWORD!) {
     const token = crypto.randomBytes(32).toString("hex");
-    const res = NextResponse.redirect(new URL("/admin/home", request.url));
+    const res = NextResponse.json({ message: "Giriş başarılı.", redirect: true }, { status: 200 });
     res.cookies.set("token", token, {
       maxAge: 10 * 60,  // 10 dakika
       path: "/",        // tüm siteye geçerli

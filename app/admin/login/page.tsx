@@ -17,7 +17,11 @@ export default function AdminLogin() {
       try{
           const res = await axios.post("/api/v1/login",values)
           setMessage(res.data.message);
+          if(res.data.redirect){
+            window.location.href = "/admin/home";
+          }
           resetForm();
+
       }catch(e){
         setMessage("Kullanıcı adı veya şifre hatalı.");
         console.log(e);
