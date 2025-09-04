@@ -13,12 +13,12 @@ export async function GET(body: NextRequest) {
         }
     });
     if(!result || !token){
-        return NextResponse.json({ message: "Giriş yapınız." , ok: false }, { status: 401 });
+        return NextResponse.redirect(new URL("/admin/login", body.url));
     }
     if (result) {
         return NextResponse.json({ message: "Giriş yapıldı." , ok: true }, { status: 200 });
     } else {
-        return NextResponse.json({ message: "Giriş yapınız." , ok: false }, { status: 401 });
+        return NextResponse.redirect(new URL("/admin/login", body.url));
     }
     }catch(error){
         console.log(error);
