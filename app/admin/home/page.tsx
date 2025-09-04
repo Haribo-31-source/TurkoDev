@@ -17,7 +17,7 @@ export default function Home() {
       setMessage(res.data.message);
     }else {
       setMessage(res.data.messsage);
-      router.push("/admin/login");
+      window.location.href = "/admin/login";
     }
 }
 
