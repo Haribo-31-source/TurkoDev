@@ -48,5 +48,6 @@ form {
     color: red;
     height: 10px;
     font-size: clamp(12px, 1.5vw, 19px);
+    transition: all 3s ease-in-out;
   }
 

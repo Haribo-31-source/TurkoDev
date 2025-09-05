@@ -1,40 +1,52 @@
 "use client";
 
-import { useState , useEffect} from "react";
-import axios from "axios";
-import { useRouter } from "next/navigation";
 import "../layout.css";
+import { Check } from "@/lib/check";
+import { getApi } from "@/lib/getBlog";
+import { useEffect, useState } from "react";
+import { deleteApi } from "@/lib/delete";
 
-export default function Home() {
-  const router = useRouter();
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(true);
-
-  const admin = async () => {
-    const res = await axios.get("/api/v1/check", {
-    withCredentials: true,
-    });
-    if (res.data.ok) {
-      setMessage(res.data.message);
-      setLoading(false);
-    }else {
-      setMessage(res.data.messsage);
-      router.push("/admin/login");
-      setLoading(true);
-    }
+interface Blog {
+  id: string;
+  title: string;
+  content: string;
 }
 
-  useEffect(() => {
-    admin();
-  }, []);
+export default function Home() {
+  const [data, setData] = useState<Blog[]>([]);
+  const [update, setUpdate] = useState(false);
 
-  if(loading){
-    return <p>Yükleniyor...</p>
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getApi();
+      setData(response.data);
+    };
+
+    fetchData();
+  }, [update]);
+
+  Check();
+
+  const loading = Check();
+
+
+  if (loading) {
+    return <p>Yükleniyor...</p>;
   }
+
   return (
     <>
-    <h1>Admin Home</h1>
-    {message && <p>{message}</p>}
+      <h1>Admin Home</h1>
+      <h2>Bloglar</h2>
+      <div className="blogs">
+        {data.map((blog) => (
+          <div key={blog.id} className="blog">
+            <h2 className="blog-title">{blog.title}</h2>
+            <p className="blog-content">{blog.content}</p>
+            <input type="button" value="Sil" className="delete" onClick={() => {deleteApi(blog.id); setData(prev => prev.filter(b => b.id !== blog.id));}} />
+          </div>
+        ))}
+      </div>
     </>
   );
 }

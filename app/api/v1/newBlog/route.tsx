@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
                 content: content,
             },
         })
-        return NextResponse.json({ res: "Blog gönderildi." }, { status: 200 });
+        return NextResponse.json({ message: "Blog gönderildi." }, { status: 200 });
     }
     catch (error) {
       console.log(error + "Hata Oluştu");

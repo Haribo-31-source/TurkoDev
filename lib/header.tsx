@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import "../app/admin/layout.css";
 
 export default function Header() {
 
@@ -50,7 +51,7 @@ export default function Header() {
                         <li><Link href={"/admin/home"}>Home</Link></li>
                         <li><Link href={"/admin/home/addBlog"}>Blogs</Link></li>
                         <li><Link href={"/admin/home/latest"}>Chat</Link></li>
-                        <li><input type="button" value="Logout" onClick={() => logout()} /></li>
+                        <li><input type="button" value="Logout" onClick={() => logout()} className="logout"/></li>
                     </ul>
                 </nav>
             </header>

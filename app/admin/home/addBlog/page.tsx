@@ -4,6 +4,7 @@ import './page.css';
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Check } from "@/lib/check";
 
 export default function AddBlog() {
   const [message, setMessage] = useState("");
@@ -33,6 +34,12 @@ export default function AddBlog() {
   });
 
 
+    Check();
+    const loading = Check();
+    if (loading) {
+      return <p>Yükleniyor...</p>;
+    }
+
   return (
     <>
     <h1>Add Blog</h1>
@@ -43,7 +50,7 @@ export default function AddBlog() {
         </p>
         <input type="text" name="author" placeholder='Author' value={formik.values.author} onChange={formik.handleChange} />
           <p id="error2">
-            {formik.touched.author && formik.errors.author ? formik.errors.author : ""}
+            {formik.touched.author && formik.errors.author ? formik.errors.author : " "}
         </p>
         <textarea name="content" placeholder='Content' value={formik.values.content} onChange={formik.handleChange}></textarea>
         {message && <p>{message}</p>}
