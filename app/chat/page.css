@@ -10,7 +10,7 @@ form {
   padding: 10px;
   width:30vw;
   min-width: 150px;
-  margin: 20px;
+  margin: 2px;
   margin-left: 0;
   border: 1px solid black;
   border-radius: 5px;
@@ -68,14 +68,16 @@ form {
 .chat-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: 1px;
   padding: 10px;
   background-color: rgba(128, 255, 0, 0.418);
   border-radius: 5px;
   height: 40vh;
   margin-top: 5px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(128, 255, 0) rgb(2, 92, 0);
+  overflow-x: hidden;
 }
 
 .chat-input {
@@ -91,5 +93,5 @@ form {
 }
 
 .chat{
-  min-width:100px ;
+  min-width:100px;
 }

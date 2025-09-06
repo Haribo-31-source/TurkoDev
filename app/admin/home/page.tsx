@@ -14,7 +14,6 @@ interface Blog {
 
 export default function Home() {
   const [data, setData] = useState<Blog[]>([]);
-  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +22,7 @@ export default function Home() {
     };
 
     fetchData();
-  }, [update]);
+  }, []);
 
   Check();
 

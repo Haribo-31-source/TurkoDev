@@ -69,3 +69,43 @@ header > nav > ul > li:hover
   transform: scale(1.1);
 }
 
+.blogs{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1vw;
+    position: absolute;
+    width: calc(100% - 3vw);
+    padding: 1vw;
+    border-radius: 1vw;
+    margin-top: 1vh;
+}
+
+.blog{
+    background-color: rgba(255, 255, 255, 0.247);
+    padding: 1vw;
+    width: calc(100% - 2vw);
+    border-radius: 1vw;
+    box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.12);
+    text-align: center;
+    transition: all 1s ease-in-out;
+    backdrop-filter: blur(15px);
+}
+
+@media screen and (max-width: 720px) {
+    .blogs{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 1vw;
+        position: absolute;
+        width: calc(100% - 2vw);
+        padding: 1vw;
+        border-radius: 1vw;
+        margin-top: 1vh;
+    }
+    
+}
+
+.blog-title{
+    font-size: clamp(10px, 2vw, 3rem);
+    margin-bottom: 1vh;
+}
